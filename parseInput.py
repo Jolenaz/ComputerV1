@@ -37,7 +37,7 @@ def checkEquationCaractere(equation):
     
 
 def parseSide(data, side, coeff):
-    exp = r"([\+\-]?[0-9]+\.?[0-9]?)X\^([0-9]+)"
+    exp = r"([\+\-]?[0-9]+\.?[0-9]*)X\^([0-9]+)"
     m = re.search(exp,data)
     while m:
         if len(coeff) < int(m.groups()[1]) + 1:
