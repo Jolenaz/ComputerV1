@@ -25,7 +25,6 @@ def checkPowerZero(equation):
     return equation
 
 def checkEquationCaractere(equation):
-
     exp = r"[^0-9^+\-X=\.]"
     m = re.search(exp, equation)
     if m:
@@ -38,7 +37,6 @@ def checkEquationCaractere(equation):
     
 
 def parseSide(data, side, coeff):
-    print(data)
     exp = r"([\+\-]?[0-9]+\.?[0-9]?)X\^([0-9]+)"
     m = re.search(exp,data)
     while m:
@@ -75,16 +73,14 @@ def parseInput(rawInput):
         equation = equation.replace("X" + i, "X^" + i)
     equation = checkPowerZero(equation)
     if checkEquationCaractere(equation) == False:
-        return (5)
+        return (None)
     sides = equation.split('=')
     if (len(sides) != 2):
         print("to many \"=\"")
-        return (5)
+        return (None)
 
     coeff = []
     coeff = parseSide(sides[0], 1, coeff)
     coeff = parseSide(sides[1], -1, coeff)
-    print(coeff)
 
-
-    return (10)
+    return (coeff)
