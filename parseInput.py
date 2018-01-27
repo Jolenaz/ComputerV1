@@ -49,6 +49,7 @@ def parseSide(data, side, coeff):
         m = re.search(exp,data)
     if (data != ""):
         print("error in parsing : ", data)
+        quit()
     return (coeff)
 
 def parseInput(rawInput):

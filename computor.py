@@ -12,11 +12,17 @@ if (coeff == None):
     print("error")
     quit()
 
-print( str(coeff[2]) + "*X^2 + "+ str(coeff[1])+"*X + "+str(coeff[0]) + " = 0")
+size = len(coeff)
+if size > 3:
+    print("equation de degre : " + str(size - 1) + "\nJe suis trop bete pour le resoudre")
+    quit()
 
-a = coeff[2]
-b = coeff[1]
+a = coeff[2] if size == 3 else 0
+b = coeff[1] if size == 2 else 0
 c = coeff[0]
+
+print( str(a) + "*X^2 + "+ str(b)+"*X + "+str(c) + " = 0")
+
 
 if (a == 0):
     if (b == 0):
@@ -35,21 +41,26 @@ print("Discriminent : B^2 - 4AC")
 
 dis = b * b - 4 * a * c 
 
-print("Disc =" + str(dis))
+print("Disc = " + str(dis))
 
 if (dis == 0):
     print ("Disc = 0 : racine double")
     print("X = - B / 2A")
-    print("X = " + str(-b/(2*a)))
+    print("\nX = " + str(-b/(2*a)))
 elif (dis > 0):
     print ("Disc > 0 : deux racines reelles ")
     print("X1 = -B -sqrt(Disc) / 2A  ;  X2 = -B +sqrt(Disc) / 2A")
-    print("X1 = " + str((-b-math.sqrt(dis))/(2*a)))
+    print("\nX1 = " + str((-b-math.sqrt(dis))/(2*a)))
     print("X2 = " + str((-b+math.sqrt(dis))/(2*a)))
 elif (dis < 0):
     print ("Disc < 0 : deux racines complexes ")
     print("X1 = -B -i * sqrt(Disc) / 2A  ;  X2 = -B + i * sqrt(Disc) / 2A")
-    print("X1 = " + str(-b/(2*a)) + " - i * " + str(math.sqrt(-dis)/(2*a)))
-    print("X2 = " + str(-b/(2*a)) + " + i * " + str(math.sqrt(-dis)/(2*a)))
-print("voila")
+    if (a > 0):
+        print("\nX1 = " + str(-b/(2*a)) + " - i * " + str(math.sqrt(-dis)/(2*a)))
+        print("X2 = " + str(-b/(2*a)) + " + i * " + str(math.sqrt(-dis)/(2*a)))
+    else:
+        print("\nX1 = " + str(-b/(2*a)) + " - i * " + str(math.sqrt(-dis)/(-2*a)))
+        print("X2 = " + str(-b/(2*a)) + " + i * " + str(math.sqrt(-dis)/(-2*a)))
+
+print("\nvoila")
 
