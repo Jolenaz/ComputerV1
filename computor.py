@@ -1,6 +1,5 @@
 
 import sys
-import math
 from parseInput import parseInput
 from myMath import rac
 
