@@ -1,7 +1,6 @@
 
 import sys
 from parseInput import parseInput
-from myMath import rac
 
 if len(sys.argv) < 2:
     print("you need to pass at list 1 argument.")
@@ -43,8 +42,6 @@ print("Discriminent : B^2 - 4AC")
 dis = b * b - 4 * a * c 
 
 print("Disc = " + str(dis))
-print("rac = " + str(rac(dis)))
-
 if (dis == 0):
     print ("Disc = 0 : racine double")
     print("X = - B / 2A")
@@ -52,17 +49,17 @@ if (dis == 0):
 elif (dis > 0):
     print ("Disc > 0 : deux racines reelles ")
     print("X1 = -B -sqrt(Disc) / 2A  ;  X2 = -B +sqrt(Disc) / 2A")
-    print("\nX1 = " + str((-b-rac(dis))/(2*a)))
-    print("X2 = " + str((-b+rac(dis))/(2*a)))
+    print("\nX1 = " + str((-b-dis**0.5)/(2*a)))
+    print("X2 = " + str((-b+dis**0.5)/(2*a)))
 elif (dis < 0):
     print ("Disc < 0 : deux racines complexes ")
     print("X1 = -B -i * sqrt(Disc) / 2A  ;  X2 = -B + i * sqrt(Disc) / 2A")
     if (a > 0):
-        print("\nX1 = " + str(-b/(2*a)) + " - i * " + str(rac(-dis)/(2*a)))
-        print("X2 = " + str(-b/(2*a)) + " + i * " + str(rac(-dis)/(2*a)))
+        print("\nX1 = " + str(-b/(2*a)) + " - i * " + str((-dis)**0.5/(2*a)))
+        print("X2 = " + str(-b/(2*a)) + " + i * " + str((-dis)**0.5/(2*a)))
     else:
-        print("\nX1 = " + str(-b/(2*a)) + " - i * " + str(rac(-dis)/(-2*a)))
-        print("X2 = " + str(-b/(2*a)) + " + i * " + str(rac(-dis)/(-2*a)))
+        print("\nX1 = " + str(-b/(2*a)) + " - i * " + str((-dis)**0.5/(-2*a)))
+        print("X2 = " + str(-b/(2*a)) + " + i * " + str((-dis)**0.5/(-2*a)))
 
 print("\nvoila")
 
